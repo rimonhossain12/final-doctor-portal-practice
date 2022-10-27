@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../../Shared/Footer/Footer';
 import Header from '../Header/Header';
 import Info from '../Info/Info';
 import SampleDoctor from '../SampleDoctor/SampleDoctor';
@@ -13,6 +14,7 @@ const Home = () => {
             <Treatments />
             <TeethService />
             <SampleDoctor />
+            <Footer />
         </div>
     );
 };
