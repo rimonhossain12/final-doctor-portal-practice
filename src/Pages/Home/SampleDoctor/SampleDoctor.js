@@ -5,7 +5,7 @@ import PrimaryButton from '../../Shared/PrimaryButton/PrimaryButton';
 
 const SampleDoctor = () => {
     return (
-        <section className='flex justify-center items-center sm:py-12 mb-5 text-white'
+        <section className='flex justify-center items-center px-10 mt-12 text-white'
             style={{
                 background: `url(${bgImg})`,
                 backgroundPosition: 'center center',
@@ -16,7 +16,7 @@ const SampleDoctor = () => {
             <div className="flex-1 hidden lg:block">
                 <figure><img src={doctor} className="mt-[-120px] " alt="Shoes" /></figure>
             </div>
-            <div className="flex-1 px-5">
+            <div className="flex-1">
                 <h3 className='text-primary text-3xl'>Appointment</h3>
                 <h2 className='text-4xl py-4'>Make an appointment</h2>
                 <p className='mb-5'>Lorem ipsum dolor sit amet consectetur

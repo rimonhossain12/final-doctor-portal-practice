@@ -28,6 +28,9 @@ const AvailableAppoint = ({ date }) => {
                         </SingleAppointment>)
                     }
                 </div>
+                <div className='text-center'>
+                    <h2 className='text-primary text-2xl capitalize'>Available slots for teeth orthodontics</h2>
+                </div>
                 <div className="grid px-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-12">
                     {
                         services.map((service) => <AppointmentService
