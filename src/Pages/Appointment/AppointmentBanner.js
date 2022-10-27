@@ -8,7 +8,7 @@ const AppointmentBanner = ({date,setDate}) => {
     
     return (
         <div className="hero min-h-screen">
-            <div className="hero-content flex-col lg:flex-row-reverse gap-20">
+            <div className="hero-content flex-col lg:flex-row-reverse md:gap-40 lg:gap-60">
                 <img src={chair} alt="" className="max-w-sm rounded-lg shadow-2xl" />
                 <div className='text-center'>
                     <DayPicker
