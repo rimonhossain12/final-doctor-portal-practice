@@ -6,9 +6,7 @@ import InfoCard from '../InfoCard/InfoCard';
 
 
 const Info = () => {
-
     return (
-        // Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, quae.
         <div className='grid pb-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
             <InfoCard img={clock} cardTitle="Opening Hour" description="Saturday-ThursDay 9 to 6" bgColor="bg-gradient-to-r from-secondary to-primary text-white" />
             <InfoCard img={marker} cardTitle="Opening Hour" description="Saturday-ThursDay 9 to 6" bgColor="bg-accent text-white" />
