@@ -1,6 +1,7 @@
 import { format } from 'date-fns';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
+import AppointmentService from './AppointmentService';
 import SingleAppointment from './SingleAppointment';
 
 const AvailableAppoint = ({ date }) => {
@@ -25,6 +26,17 @@ const AvailableAppoint = ({ date }) => {
                         >
 
                         </SingleAppointment>)
+                    }
+                </div>
+                <div className="grid px-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-12">
+                    {
+                        services.map((service) => <AppointmentService
+                            key={service._id}
+                            service={service}
+                            date = {date}
+                        >
+
+                        </AppointmentService>)
                     }
                 </div>
             </div>

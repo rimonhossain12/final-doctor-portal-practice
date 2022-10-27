@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SingleAppointment = ({ service }) => {
-    const { name, slots } = service;
+    const { name } = service;
     return (
         <>
             <div className="card lg:max-w-64 bg-base-100 shadow-xl">
