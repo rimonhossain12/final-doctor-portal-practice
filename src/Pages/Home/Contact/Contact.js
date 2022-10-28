@@ -14,7 +14,7 @@ const Contact = () => {
                 backgroundSize: 'cover',
                 backgroundAttachment: 'fixed'
 
-            }} className="text-center py-10">
+            }} className="text-center my-12  py-10">
             <h3 className='text-primary text-2xl py-4'>Contact Us</h3>
             <h2 className='text-white text-3xl mb-3'>Stay Connected us</h2>
             <div className='form-div'>
