@@ -16,9 +16,12 @@ const AppointmentService = ({ service, date, setTreatment }) => {
                         slots.length ? <span>{slots[0]}</span> : <span className='text-red-500 text-thin'>Try Another day!</span>
                     }
                 </p>
-                <button>Book Appointment</button>
-
-
+                {/* The button to open modal */}
+                <label htmlFor="booking-modal"
+                    disabled={slots.length === 0}
+                    onClick={() => setTreatment(service)}
+                    className='btn btn-primary text-white'
+                >Book Appointment</label>
             </div>
         </div>
     );
