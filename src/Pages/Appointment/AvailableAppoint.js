@@ -2,10 +2,12 @@ import { format } from 'date-fns';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import AppointmentService from './AppointmentService';
+import BookingModal from './BookingModal';
 import SingleAppointment from './SingleAppointment';
 
 const AvailableAppoint = ({ date }) => {
     const [services, setService] = useState([]);
+
     useEffect(() => {
         fetch('services.json')
             .then(res => res.json())
@@ -38,7 +40,6 @@ const AvailableAppoint = ({ date }) => {
                             service={service}
                             date = {date}
                         >
-
                         </AppointmentService>)
                     }
                 </div>
