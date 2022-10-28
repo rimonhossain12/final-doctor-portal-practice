@@ -11,6 +11,11 @@ const AppointmentService = ({ service, date }) => {
                 <p> {slots.length}
                     {slots.length > 1 ? " spaces " : " space "}
                     Available</p>
+                <p>
+                    {
+                        slots.length ? <span>{slots[0]}</span> : <span className='text-red-500 text-thin'>Try Another day!</span>
+                    }
+                </p>
                 <button className='btn btn-primary uppercase text-white bg-gradient-to-r from-secondary to-primary'>Book Appointment</button>
             </div>
         </div>
