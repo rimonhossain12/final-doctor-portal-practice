@@ -1,10 +1,39 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import LoadingSpinner from '../Shared/LoadingSpinner/LoadingSpinner';;
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+
+
+    const onSubmit = data => {
+        signInWithEmailAndPassword(data.email, data.password);
+        console.log(data);
+    };
+
+
+    let signInError;
+    if (gError || error) {
+        signInError = <p className='text-red-500 text-thin'>{gError.message || error.message}</p>
+    }
+
+    if (gUser || user) {
+        console.log(gUser);
+    }
+
+    if (gLoading || loading) {
+        return <LoadingSpinner />
+    }
 
     return (
         <div className='min-h-screen flex justify-center items-center'>
@@ -63,6 +92,7 @@ const Login = () => {
                                 {errors.password?.type === 'required' && <p role="alert" className='text-red-500 text-thin'>{errors?.password.message}</p>}
                                 {errors.password?.type === 'minLength' && <p role="alert" className='text-red-500 text-thin'>{errors?.password.message}</p>}
                             </label>
+                            {signInError}
                             <p className='py-2'>
                                 <Link to='/forgot'>Forgot Password?</Link>
                             </p>
@@ -73,7 +103,10 @@ const Login = () => {
                         <Link to="/signup"><span className='text-primary'> Create new Account</span></Link>
                     </p>
                     <div className="divider">OR</div>
-                    <button className="btn btn-outline">Continue with Google</button>
+                    <button
+                        className="btn btn-outline"
+                        onClick={() => signInWithGoogle()}
+                    >Continue with Google</button>
                 </div>
             </div>
         </div>
