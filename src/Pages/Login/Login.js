@@ -63,12 +63,15 @@ const Login = () => {
                                 {errors.password?.type === 'required' && <p role="alert" className='text-red-500 text-thin'>{errors?.password.message}</p>}
                                 {errors.password?.type === 'minLength' && <p role="alert" className='text-red-500 text-thin'>{errors?.password.message}</p>}
                             </label>
+                            <p className='py-2'>
+                                <Link to='/forgot'>Forgot Password?</Link>
+                            </p>
                         </div>
-                        <p className='py-3 text-accent text-thin'>New to Doctor's Portal!
-                            <Link to="/signup"><span className='text-primary'> Create new Account</span></Link>
-                        </p>
                         <input type="submit" className='btn btn-accent w-full max-w-xs text-white' />
                     </form>
+                    <p className='py-3 text-accent text-thin'>New to Doctor's Portal!
+                        <Link to="/signup"><span className='text-primary'> Create new Account</span></Link>
+                    </p>
                     <div className="divider">OR</div>
                     <button className="btn btn-outline">Continue with Google</button>
                 </div>

@@ -7,6 +7,7 @@ import Review from './Pages/Home/Review/Review';
 import Appointment from './Pages/Appointment/Appointment';
 import Login from './Pages/Login/Login';
 import SignUp from './Pages/Login/SignUp';
+import ForgotPassword from './Pages/Login/ForgotPassword';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
 				<Route path="/review" element={<Review />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/signup" element={<SignUp />} />
+				<Route path="/forgot" element={<ForgotPassword />} />
 			</Routes>
 		</div>
 	);

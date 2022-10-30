@@ -25,10 +25,6 @@ const SignUp = () => {
                                         required: {
                                             value: true,
                                             message: 'name must be required!'
-                                        },
-                                        pattern: {
-                                            value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                                            message: 'Invalid name validation'
                                         }
                                     },
                                 )}
@@ -36,7 +32,6 @@ const SignUp = () => {
                             />
                             <label className="label">
                                 {errors.name?.type === 'required' && <p role="alert" className='text-red-500 text-thin'>{errors.name.message}</p>}
-                                {errors.name?.type === 'pattern' && <p role="alert" className='text-red-500 text-thin'>{errors.name.message}</p>}
                             </label>
                         </div>
                         <div className="form-control w-full max-w-xs">
@@ -90,14 +85,17 @@ const SignUp = () => {
                                 {errors.password?.type === 'required' && <p role="alert" className='text-red-500 text-thin'>{errors?.password.message}</p>}
                                 {errors.password?.type === 'minLength' && <p role="alert" className='text-red-500 text-thin'>{errors?.password.message}</p>}
                             </label>
+                            <p className='py-2'>
+                                <Link to='/forgot'>Forgot Password?</Link>
+                            </p>
                         </div>
-                        <p className='py-3 text-accent text-center'>Already Sign Up!
-                            <Link to="/login"><span className='text-primary'> Please Login</span></Link>
-                        </p>
                         <input type="submit" className='btn btn-accent w-full max-w-xs text-white' />
                     </form>
                     <div className="divider">OR</div>
-                    <button className="btn btn-outline">Continue with Google</button>
+                    <p className='py-3 text-accent text-center'>Already Sign Up!
+                        <Link to="/login"><span className='text-primary'> Please Login</span></Link>
+                    </p>
+                    <button className="btn btn-outline">Continue with Google</button>                    
                 </div>
             </div>
         </div>
