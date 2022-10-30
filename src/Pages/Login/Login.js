@@ -2,12 +2,9 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 
-
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);
-
-
 
     return (
         <div className='min-h-screen flex justify-center items-center'>
@@ -77,7 +74,7 @@ const Login = () => {
                 </div>
             </div>
         </div>
-    );
+    )
 };
 
 export default Login;
