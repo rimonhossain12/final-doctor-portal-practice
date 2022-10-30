@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import { Link } from 'react-router-dom';
 
 
 const Login = () => {
@@ -66,10 +67,13 @@ const Login = () => {
                                 {errors.password?.type === 'minLength' && <p role="alert" className='text-red-500 text-thin'>{errors?.password.message}</p>}
                             </label>
                         </div>
-
-
+                        <p className='py-3 text-accent text-thin'>New to Doctor's Portal!
+                            <Link to="/signup"><span className='text-primary'> Create new Account</span></Link>
+                        </p>
                         <input type="submit" className='btn btn-accent w-full max-w-xs text-white' />
                     </form>
+                    <div className="divider">OR</div>
+                    <button className="btn btn-outline">Continue with Google</button>
                 </div>
             </div>
         </div>
