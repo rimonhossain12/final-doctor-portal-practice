@@ -3,7 +3,8 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import LoadingSpinner from '../Shared/LoadingSpinner/LoadingSpinner';;
+import LoadingSpinner from '../Shared/LoadingSpinner/LoadingSpinner'; import { useEffect } from 'react';
+;
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -31,10 +32,12 @@ const Login = () => {
     let from = location?.state?.from || "/";
 
 
-    if (gUser || user) {
-        navigate(from, { replace: true });
-        // console.log(gUser);
-    }
+    useEffect(() => {
+        if (gUser || user) {
+            navigate(from, { replace: true });
+            // console.log(gUser);
+        }
+    }, [gUser, user, from, navigate]);
 
     if (gLoading || loading) {
         return <LoadingSpinner />

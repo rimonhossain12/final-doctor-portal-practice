@@ -126,7 +126,7 @@ const SignUp = () => {
                                 <Link to='/forgot'>Forgot Password?</Link>
                             </p>
                         </div>
-                        <input type="submit" className='btn btn-accent w-full max-w-xs text-white' />
+                        <input type="submit" className='btn btn-accent w-full max-w-xs text-white' value="sign up" />
                     </form>
                     <div className="divider">OR</div>
                     <p className='py-3 text-accent text-center'>Already Sign Up!

@@ -7,8 +7,8 @@ import Review from './Pages/Home/Review/Review';
 import Appointment from './Pages/Appointment/Appointment';
 import Login from './Pages/Login/Login';
 import SignUp from './Pages/Login/SignUp';
-import ForgotPassword from './Pages/Login/ForgotPassword';
 import RequireAuth from './Pages/Login/RequireAuth';
+import ResetPassword from './Pages/Login/ResetPassword';
 
 function App() {
 	return (
@@ -25,7 +25,7 @@ function App() {
 				<Route path="/review" element={<Review />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/signup" element={<SignUp />} />
-				<Route path="/forgot" element={<ForgotPassword />} />
+				<Route path="/forgot" element={<ResetPassword />} />
 			</Routes>
 		</div>
 	);
