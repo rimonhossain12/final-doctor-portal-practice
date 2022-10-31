@@ -8,7 +8,6 @@ const Navbar = () => {
     const [user] = useAuthState(auth);
     console.log(user);
 
-
     const logout = () => {
         signOut(auth);
     }
@@ -22,7 +21,7 @@ const Navbar = () => {
             <li>
                 {
                     user?.email ? <button
-                        onClick={logout()}
+                        onClick={logout}
                     >Sign Out</button> : <Link to="/login">Login</Link>
                 }
             </li>
