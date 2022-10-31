@@ -15,7 +15,6 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password);
         console.log(data);
@@ -24,7 +23,7 @@ const Login = () => {
 
     let signInError;
     if (gError || error) {
-        signInError = <p className='text-red-500 text-thin'>{gError.message || error.message}</p>
+        signInError = <p className='text-red-500 text-thin'>{gError?.message || error?.message}</p>
     }
 
     if (gUser || user) {
