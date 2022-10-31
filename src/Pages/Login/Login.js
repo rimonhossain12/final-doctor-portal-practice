@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import LoadingSpinner from '../Shared/LoadingSpinner/LoadingSpinner';;
@@ -17,7 +17,7 @@ const Login = () => {
 
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password);
-        console.log(data);
+
     };
 
 
@@ -26,8 +26,14 @@ const Login = () => {
         signInError = <p className='text-red-500 text-thin'>{gError?.message || error?.message}</p>
     }
 
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location?.state?.from || "/";
+
+
     if (gUser || user) {
-        console.log(gUser);
+        navigate(from, { replace: true });
+        // console.log(gUser);
     }
 
     if (gLoading || loading) {
@@ -96,7 +102,7 @@ const Login = () => {
                                 <Link to='/forgot'>Forgot Password?</Link>
                             </p>
                         </div>
-                        <input type="submit" className='btn btn-accent w-full max-w-xs text-white' />
+                        <input type="submit" className='btn btn-accent w-full max-w-xs text-white' value='login' />
                     </form>
                     <p className='py-3 text-accent text-thin'>New to Doctor's Portal!
                         <Link to="/signup"><span className='text-primary'> Create new Account</span></Link>

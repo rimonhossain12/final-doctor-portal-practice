@@ -29,8 +29,7 @@ const AvailableAppoint = ({ date }) => {
                             key={service._id}
                             service={service}
                         >
-
-                        </SingleAppointment>)
+                    </SingleAppointment>)
                     }
                 </div>
                 <div className='text-center'>
