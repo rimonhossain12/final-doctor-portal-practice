@@ -21,7 +21,6 @@ const Login = () => {
 
     };
 
-
     let signInError;
     if (gError || error) {
         signInError = <p className='text-red-500 text-thin'>{gError?.message || error?.message}</p>

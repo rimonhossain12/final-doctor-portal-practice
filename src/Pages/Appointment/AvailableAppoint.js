@@ -1,4 +1,4 @@
-import { format } from 'date-fns';
+import { format, } from 'date-fns';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import AppointmentService from './AppointmentService';
@@ -10,12 +10,14 @@ const AvailableAppoint = ({ date }) => {
 
     // handle booking modal data from here
     const [treatment, setTreatment] = useState(null)
+    let formattedDate = format(date, 'PP');
 
     useEffect(() => {
-        fetch('services.json')
+        // fetch('services.json')
+        fetch(`http://localhost:8000/available?date=${formattedDate}`)
             .then(res => res.json())
             .then(data => setService(data))
-    }, [])
+    }, [formattedDate])
 
     return (
         <div>
@@ -29,7 +31,7 @@ const AvailableAppoint = ({ date }) => {
                             key={service._id}
                             service={service}
                         >
-                    </SingleAppointment>)
+                        </SingleAppointment>)
                     }
                 </div>
                 <div className='text-center'>
