@@ -1,23 +1,39 @@
 import { format, } from 'date-fns';
 import React, { useState } from 'react';
-import { useEffect } from 'react';
 import AppointmentService from './AppointmentService';
 import SingleAppointment from './SingleAppointment';
 import BookingModal from './BookingModal';
+import { useQuery } from 'react-query';
+import LoadingSpinner from '../Shared/LoadingSpinner/LoadingSpinner';
 
 const AvailableAppoint = ({ date }) => {
-    const [services, setService] = useState([]);
+    // const [services, setService] = useState([]);
 
     // handle booking modal data from here
     const [treatment, setTreatment] = useState(null)
     let formattedDate = format(date, 'PP');
 
-    useEffect(() => {
-        // fetch('services.json')
-        fetch(`http://localhost:8000/available?date=${formattedDate}`)
-            .then(res => res.json())
-            .then(data => setService(data))
-    }, [formattedDate])
+    // useEffect(() => {
+    //     // fetch('services.json')
+    //     fetch(`http://localhost:8000/available?date=${formattedDate}`)
+    //         .then(res => res.json())
+    //         .then(data => setService(data))
+    // }, [formattedDate])s
+
+    const { isLoading, error, data: services } = useQuery('repoData', () =>
+        fetch(`http://localhost:8000/available?date=${formattedDate}`).then(res =>
+            res.json()
+        )
+    )
+
+    if (isLoading) {
+        return <LoadingSpinner />
+    }
+
+    if (error) {
+        return <p>Sorry bro! React queries found server error!</p>
+    }
+
 
     return (
         <div>
