@@ -20,7 +20,7 @@ const AvailableAppoint = ({ date }) => {
     //         .then(data => setService(data))
     // }, [formattedDate])s
 
-    const { isLoading, error, data: services } = useQuery('repoData', () =>
+    const { isLoading, error, data: services } = useQuery(['available', 'formattedDate'], () =>
         fetch(`http://localhost:8000/available?date=${formattedDate}`).then(res =>
             res.json()
         )
